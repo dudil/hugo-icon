@@ -1,20 +1,20 @@
+{{ with .Site.GetPage "section" "services" }}
 <div id="fh5co-services" data-section="services">
-  {{ with .Site.Params.services }}
-  {{ if .video }}
-  <div class="fh5co-video"><a href="{{ with .vidlink }}{{ . }}{{ end }}" class="popup-vimeo"><i class="icon-play2"></i></a> <span>Watch video</span></div>
+  {{ if .Params.video }}
+  <div class="fh5co-video"><a href="{{ with .Params.vidlink }}{{ . }}{{ end }}" class="popup-vimeo"><i class="icon-play2"></i></a> <span>Watch video</span></div>
   {{ end }}
   <div class="container">
     <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-      <h2>{{ .title }}</h2>
-      <p>{{ .description | markdownify }}</p>
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Content | markdownify }}</p>
     </div>
     
-    {{ range .item }}
+    {{ range .Data.Pages.ByWeight }}
     <div class="col-md-4">
       <div class="service">
-	<div class="icon"><i class={{ .icon }}></i></div>
-	<h3>{{ .title }}</h3>
-	<p>{{ .description | markdownify }}</p>
+    <div class="icon"><i class={{ .Params.icon }}></i></div>
+	<h3>{{ .Params.title }}</h3>
+    <p>{{.Content| markdownify}}</p>
       </div>
     </div>
     {{ end }}
@@ -24,5 +24,5 @@
     </div>
     
   </div>
-  {{ end }}
 </div> <!-- END fh5co-services -->
+{{ end }}
