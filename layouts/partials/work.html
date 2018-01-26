@@ -1,5 +1,5 @@
 {{ with .Site.GetPage "section" "work" }}
-<div id="fh5co-gallery">
+<div id="fh5co-gallery" data-section="work">
   {{ range .Data.Pages }}
   <div class="fh5co-item">
     <div class="fh5co-copy" style="background-image: url({{ .Params.bgimage | absURL }})">

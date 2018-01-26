@@ -11,6 +11,10 @@
 
 	{{ if .Site.Params.services.enable }}
 	<a href="#" data-nav-section="services">{{ with .Site.Params.nav.services }}{{ . | markdownify }}{{ end }}</a>
+    {{ end }}
+    
+    {{ if .Site.Params.work.enable }}
+	<a href="#" data-nav-section="work">{{ with .Site.Params.nav.work }}{{ . | markdownify }}{{ end }}</a>
 	{{ end }}
 
 	{{ if .Site.Params.team.enable }}
